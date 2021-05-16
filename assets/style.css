@@ -1,0 +1,40 @@
+
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  background-color: grey;
+}
+
+.flex-container {
+display: flex;
+height: 80vh;
+}
+
+.aside {
+  flex: 2;
+  background-color: green;
+}
+
+.main {
+  flex: 5;
+  background-color: blue;
+}
+
+.info-box {
+  border: 2px solid black;
+  height: 40%;
+}
+
+.weather-box-container {
+display: flex;
+}
+
+.weather-box {
+border: 2px solid black;
+height: 200px;
+width: 20%;
+margin: 10px;
+}
