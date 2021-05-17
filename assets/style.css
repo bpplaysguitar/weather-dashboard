@@ -1,40 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;600;700&display=swap');
 
+:root {
+  --border-radius:7px;
+}
+
+body {
+  font-family: "Mulish", sans-serif;
+}
 
 header {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100px;
-  background-color: grey;
+  height: 90px;
+  background: linear-gradient(to right, #3b6dc3, #250b5b);
+  color: #fff;
+}
+
+header h1 {
+  font-size: 2.5rem;
 }
 
 .flex-container {
 display: flex;
-height: 80vh;
+height: auto;
 }
 
 .aside {
   flex: 2;
-  background-color: green;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 0px 8px 0 16px;
+  justify-content: space-between;
+}
+
+.aside h2 {
+  font-size: 1.75rem;
+  margin-left: 8px;
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+#search-input {
+  width: 90%;
+  height: 50px;
+  border-radius: var(--border-radius);
+  margin-bottom: 5px;
+  font-size: 1.5rem;
+  padding-left: 10px;
+}
+
+#search-btn {
+  width: 95%;
+  border-radius: var(--border-radius);
+  height: 40px;
+  margin: 10px;
+  background-color: #5aa2e9;
+  color: #fff;
+  border: none;
+  font-size: 1.2rem;
+}
+
+#search-btn:hover {
+  cursor: pointer;
+  background-color: hsl(210, 76%, 53%);  
+}
+
+#search-history {
+  display: flex;
+  flex-direction: column;
+}
+
+#aside-line {
+  border-bottom: 2px solid #000;
+  margin: 10px auto 20px auto;
+  width: 95%;
+  background-color: #000;
+}
+
+.history-btn {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #b7b7b7;
+  height: 45px;
+  width: 95%;
+  margin: 0 auto 15px auto;
+  border-radius: var(--border-radius);
+  color: #444;
+  font-size: 1.25rem;
+
 }
 
 .main {
   flex: 5;
-  background-color: blue;
+  background-color: #fff;
+  margin: 20px 16px 0 8px;
+  max-height: 1200px;
+}
+
+.main h2 {
+  margin-bottom: 11px;
 }
 
 .info-box {
   border: 2px solid black;
-  height: 40%;
+  border-radius: var(--border-radius);
+  height: 42%;
+}
+
+.info-box h1 {
+  display: inline-block;
+  margin: 10px;
 }
 
 .weather-box-container {
 display: flex;
+height: 45%;
 }
 
 .weather-box {
+padding: 0px 5px;
 border: 2px solid black;
-height: 200px;
+border-radius: var(--border-radius);
+background-color: #33475a;
+color: #fff;
+height: 100%;
 width: 20%;
 margin: 10px;
 }
+
+.weather-box:first-child {
+margin-left: 0;
+}
+
+.weather-box:last-child {
+  margin-right: 0;
+  }
