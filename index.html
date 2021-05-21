@@ -4,6 +4,12 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link
+  rel="stylesheet"
+  href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+  integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+  crossorigin="anonymous"
+/>
   <title>Weather Dashboard</title>
   <link rel="stylesheet" href="/assets/reset.css">
   <link rel="stylesheet" href="/assets/style.css">
@@ -21,31 +27,72 @@
 </form>
 <div id="aside-line"></div>
 <section id="search-history">
-  <div class="history-btn">Minneapolis</div>
-  <div class="history-btn"></div>
-  <div class="history-btn"></div>
-  <div class="history-btn"></div>
-  <div class="history-btn"></div>
-  <div class="history-btn"></div>
-  <div class="history-btn"></div>
-  <div class="history-btn"></div>
+  <button class="history-btn">Minneapolis</button>
+  <button class="history-btn"></button>
+  <button class="history-btn"></button>
+  <button class="history-btn"></button>
+  <button class="history-btn"></button>
+  <button class="history-btn"></button>
+  <button class="history-btn"></button>
+  <button class="history-btn"></button>
 
 
 </section>
     </aside>
     <main class="main">
 <div class="info-box">
-<h1 id="city">City</h1><h1 id="date">date</h1>
+  <div id="city-date"><h3> <span id="city"> Welcome! </span> <span id="date"></span></h3>
+  </div>
+<h3 id="temp">Temperature: <span class="info-span" id="temp-span"> </span></h3>
+<h3 id="wind">Wind: <span class="info-span" id="wind-span"> </span></h3>
+<h3 id="humidity">Humidity: <span class="info-span" id="humidity-span"></span></h3>
+<h3 id="uv-index">UV Index: <span class="info-span" id="uv-span"></span></h3>
 
 
 </div>
 <h2>5-Day Forecast:</h2>
+
 <div class="weather-box-container">
-<div class="weather-box"><h4>weather box 1</h4></div>
-<div class="weather-box"><h4>weather box 2</h4></div>
-<div class="weather-box"><h4>weather box 3</h4></div>
-<div class="weather-box"><h4>weather box 4</h4></div>
-<div class="weather-box"><h4>weather box 5</h4></div>
+<div class="weather-box" id="weather-box-1">
+  <h4><span class="weather-box-date">-</span></h4>
+  <h4>High: <span class="weather-box-high"></span></h4>
+  <h4>Low: <span class="weather-box-low"></span></h4>
+  <h4>Wind: <span class="weather-box-wind"></span></h4>
+  <h4>Humidity: <span class="weather-box-humidity"></span></h4>
+  
+</div>
+<div class="weather-box" id="weather-box-2">
+  <h4><span class="weather-box-date">-</span></h4>
+  <h4>High: <span class="weather-box-high"></span></h4>
+  <h4>Low: <span class="weather-box-low"></span></h4>
+  <h4>Wind: <span class="weather-box-wind"></span></h4>
+  <h4>Humidity: <span class="weather-box-humidity"></span></h4>
+  
+</div>
+<div class="weather-box" id="weather-box-3">
+  <h4><span class="weather-box-date">-</span></h4>
+  <h4>High: <span class="weather-box-high"></span></h4>
+  <h4>Low: <span class="weather-box-low"></span></h4>
+  <h4>Wind: <span class="weather-box-wind"></span></h4>
+  <h4>Humidity: <span class="weather-box-humidity"></span></h4>
+  
+</div>
+<div class="weather-box" id="weather-box-4">
+  <h4><span class="weather-box-date">-</span></h4>
+  <h4>High: <span class="weather-box-high"></span></h4>
+  <h4>Low: <span class="weather-box-low"></span></h4>
+  <h4>Wind: <span class="weather-box-wind"></span></h4>
+  <h4>Humidity: <span class="weather-box-humidity"></span></h4>
+  
+</div>
+<div class="weather-box" id="weather-box-5">
+  <h4><span class="weather-box-date">-</span></h4>
+  <h4>High: <span class="weather-box-high"></span></h4>
+  <h4>Low: <span class="weather-box-low"></span></h4>
+  <h4>Wind: <span class="weather-box-wind"></span></h4>
+  <h4>Humidity: <span class="weather-box-humidity"></span></h4>
+  
+</div>
 </div>
 
     </main>
@@ -54,6 +101,9 @@
 
   </div>
 
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/1.26.0/luxon.min.js"></script>
+  <script src="./assets/urlInfo.js"></script>
+  <script src="./assets/script.js"></script>
 </body>
 </html>

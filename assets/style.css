@@ -12,7 +12,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 90px;
+  height: 70px;
   background: linear-gradient(to right, #3b6dc3, #250b5b);
   color: #fff;
 }
@@ -37,15 +37,14 @@ height: auto;
 }
 
 .aside h2 {
-  font-size: 1.75rem;
-  margin-left: 8px;
-  margin-bottom: 12px;
+  font-size: 2rem;
+  margin: 10px auto 12px 11px;
   text-align: left;
 }
 
 #search-input {
   width: 90%;
-  height: 50px;
+  height: 45px;
   border-radius: var(--border-radius);
   margin-bottom: 5px;
   font-size: 1.5rem;
@@ -55,7 +54,7 @@ height: auto;
 #search-btn {
   width: 95%;
   border-radius: var(--border-radius);
-  height: 40px;
+  height: 38px;
   margin: 10px;
   background-color: #5aa2e9;
   color: #fff;
@@ -75,7 +74,7 @@ height: auto;
 
 #aside-line {
   border-bottom: 2px solid #000;
-  margin: 10px auto 20px auto;
+  margin: 8px auto 16px auto;
   width: 95%;
   background-color: #000;
 }
@@ -83,15 +82,20 @@ height: auto;
 .history-btn {
   display: flex;
   justify-content: center;
-  flex-direction: column;
-  background-color: #b7b7b7;
-  height: 45px;
+  align-items: center;
+  background-color: hsl(0, 0%, 72%);
+  height: 38px;
   width: 95%;
   margin: 0 auto 15px auto;
   border-radius: var(--border-radius);
   color: #444;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
+  border: none;
+}
 
+.history-btn:hover {
+  cursor: pointer;
+  background-color: hsl(0, 0%, 62%);  
 }
 
 .main {
@@ -101,24 +105,40 @@ height: auto;
   max-height: 1200px;
 }
 
-.main h2 {
-  margin-bottom: 11px;
-}
-
 .info-box {
   border: 2px solid black;
   border-radius: var(--border-radius);
   height: 42%;
 }
 
-.info-box h1 {
-  display: inline-block;
-  margin: 10px;
+#city-date {
+  text-decoration: underline;
+}
+
+#city {
+  
+}
+
+#date {
+
+}
+
+.info-box h3 {
+  margin: 27px 0px 10px 10px;
+  font-size: 1.4rem;
+}
+
+.info-span {
+  font-weight: 400;
+}
+
+.main h2 {
+  margin-bottom: 7px;
 }
 
 .weather-box-container {
 display: flex;
-height: 45%;
+height: 44%;
 }
 
 .weather-box {
