@@ -93,6 +93,7 @@ height: auto;
   color: #444;
   font-size: 1.2rem;
   border: none;
+  text-transform: capitalize;
 }
 
 .history-btn:hover {
@@ -117,14 +118,6 @@ height: auto;
   text-decoration: underline;
 }
 
-#city {
-  
-}
-
-#date {
-
-}
-
 .info-box h3 {
   margin: 27px 0px 10px 10px;
   font-size: 1.4rem;
@@ -132,6 +125,12 @@ height: auto;
 
 .info-span {
   font-weight: 400;
+}
+
+#uv-span {
+  padding: 1px 5px;
+  border-radius: 5px;
+  color:#fff;
 }
 
 .main h2 {
