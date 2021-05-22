@@ -57,9 +57,6 @@ function displayDates() {
     weatherboxDate[n].textContent = today.plus({days: n+1}).toFormat('D')
   } return;
 
-
-  
-
 }
 
 function getWeatherByCityName() {
@@ -125,6 +122,6 @@ function displayOneCallInfo(DisplayOneCallData) {
   
 }
 
-// <!-- display upcoming dates with luxon and addition/iteration? -->
+// <!--TODO: UV INDEX COLORS BASED ON NUMBER -->
 
 searchBtn.click(getWeather); 
