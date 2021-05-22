@@ -64,9 +64,9 @@ function saveRecentSearches() {
   }
 
   console.log(searchInput.value);
-  recentSearches.push(searchInput.value);
+  recentSearches.unshift(searchInput.value);
   if (recentSearches.length > 8) {
-  recentSearches.shift()}
+  recentSearches.pop()}
   localStorage.setItem("recentSearches", JSON.stringify(recentSearches));
 }
 
