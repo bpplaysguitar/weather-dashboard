@@ -3,6 +3,7 @@ let searchInput = document.getElementById("search-input");
 let historyBtn = $(".history-btn");
 let city = document.getElementById("city");
 let date = document.getElementById("date");
+let icon = document.getElementById("icon");
 let temp = $("#temp");
 let wind = $("#wind");
 let humidity = $("#humidity");
@@ -11,6 +12,7 @@ let tempSpan = document.getElementById("temp-span");
 let windSpan = document.getElementById("wind-span");
 let humiditySpan = document.getElementById("humidity-span");
 let uvSpan = document.getElementById("uv-span");
+let iconSpan = document.getElementById("icon");
 let longitude;
 let latitude;
 let DateTime = luxon.DateTime;
@@ -22,6 +24,7 @@ let weatherboxLow = document.querySelectorAll(".weather-box-low");
 let weatherboxWind = document.querySelectorAll(".weather-box-wind");
 let weatherboxHumidity = document.querySelectorAll(".weather-box-humidity");
 let weatherboxDate = document.querySelectorAll(".weather-box-date");
+let weatherboxIcon = document.querySelectorAll(".weather-box-icon");
 
 // determine which suffix to use on day
 if (dayToString.endsWith("1") && !dayToString.endsWith("11")) {
@@ -62,13 +65,30 @@ function saveRecentSearches() {
   if (recentSearches === null) {
     recentSearches = [];
   }
+  
+  for (let hb = 0; hb < 8; hb++)
+  historyBtn[hb].addEventListener("click", function () {
+    console.log(historyBtn[hb].textContent);
+    searchInput.value = historyBtn[hb].textContent;
+    return;
+  })
 
+
+  
+  
   console.log(searchInput.value);
   recentSearches.unshift(searchInput.value);
   if (recentSearches.length > 8) {
-  recentSearches.pop()}
-  localStorage.setItem("recentSearches", JSON.stringify(recentSearches));
-}
+    recentSearches.pop()}
+
+    
+    localStorage.setItem("recentSearches", JSON.stringify(recentSearches));
+    
+    // search for content of history button 
+  }
+    
+    
+  
 
 function renderRecentSearches() {
   // Use JSON.parse() to convert text to JavaScript object
@@ -86,6 +106,7 @@ function renderRecentSearches() {
   } else {
     return;
   }
+
 }
 
 function getWeatherByCityName() {
@@ -134,12 +155,22 @@ function getLonLatFromCity(displayData) {
 // use onecall api to display info
 function displayOneCallInfo(DisplayOneCallData) {
   uvSpan.textContent = DisplayOneCallData.current.uvi;
+  // iconSpan.textContent = DisplayOneCallData.current.weather[0].icon;
+  iconSpan.innerHTML = "<img src=\'http://openweathermap.org/img/w/" + DisplayOneCallData.current.weather[0].icon + ".png'>";
   // change color based on UV Index 
   if (uvSpan.textContent < 3) {
-  uvSpan.setAttribute("style", "background-color: green")} else {
+  uvSpan.setAttribute("style", "background-color: green")} 
+  else if ((uvSpan.textContent >= 3) && (uvSpan.textContent < 8)) {
     uvSpan.setAttribute("style", "background-color: yellow; color: black")
+  } else {
+    uvSpan.setAttribute("style", "background-color: orangered; color: white")
   }
 
+
+
+  for (let h = 0; h < 5; h++) {
+    weatherboxIcon[h].innerHTML = "<img src=\'http://openweathermap.org/img/w/" + DisplayOneCallData.daily[h].weather[0].icon + ".png'>";
+  }
 
   for (let i = 0; i < 5; i++) {
     weatherboxHigh[i].textContent =
@@ -162,18 +193,18 @@ function displayOneCallInfo(DisplayOneCallData) {
   return;
 }
 
-function getWeather(event) {
-  event.preventDefault();
+function getWeather() {
+
   getWeatherByCityName();
   displayDates();
   // saveRecentSearches();
   console.log("Search button has been clicked!");
 }
 
-// <!--TODO: UV INDEX COLORS BASED ON NUMBER -->
-// renderRecentSearches();
+
 localStorage.getItem("recentSearches");
 document.addEventListener("DOMContentLoaded", renderRecentSearches);
+
 searchBtn.click(getWeather);
 searchBtn.click(function (event) {
   event.preventDefault();

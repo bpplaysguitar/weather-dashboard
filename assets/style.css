@@ -121,6 +121,12 @@ height: auto;
   text-decoration: underline;
 }
 
+.main-icon img {
+  transform: translateY(20px);
+  /* border: 3px solid blue; */
+  margin-left: 10px;
+}
+
 .info-box h3 {
   margin: 12px 0px 12px 10px;
   font-size: 1.4rem;
