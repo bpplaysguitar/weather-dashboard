@@ -134,7 +134,12 @@ function getLonLatFromCity(displayData) {
 // use onecall api to display info
 function displayOneCallInfo(DisplayOneCallData) {
   uvSpan.textContent = DisplayOneCallData.current.uvi;
-  uvSpan.setAttribute("style", "background-color: blue");
+  // change color based on UV Index 
+  if (uvSpan.textContent < 3) {
+  uvSpan.setAttribute("style", "background-color: green")} else {
+    uvSpan.setAttribute("style", "background-color: yellow; color: black")
+  }
+
 
   for (let i = 0; i < 5; i++) {
     weatherboxHigh[i].textContent =
