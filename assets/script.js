@@ -1,5 +1,5 @@
 let searchBtn = $("#search-btn");
-let searchInput = $("#search-input");
+let searchInput = document.getElementById("search-input");
 let historyBtn = $(".history-btn");
 let city = document.getElementById("city");
 let date = document.getElementById("date");
@@ -39,25 +39,40 @@ dateDisplay =
   "- " + today.weekdayLong + ", " + today.monthLong + " " + today.day + daySuffix + ", " + today.year;
 
 
-function getWeather(event) {
-  event.preventDefault();
-  getWeatherByCityName();
-  displayDates();
-console.log("Search button has been clicked!");
-}
+
 
 
 function displayDates() {
-
-  
   // for (let n = 0; n < 5 ; n++) {
   //   weatherboxDate[n].textContent = today.plus({days: n+1}).weekdayLong + ", " + today.plus({days: n+1}).monthLong + " " + today.plus({days: n+1}).day + ", " + today.plus({days: n+1}).year;;
   // } return;
   for (let n = 0; n < 5 ; n++) {
     weatherboxDate[n].textContent = today.plus({days: n+1}).toFormat('D')
   } return;
-
 }
+
+
+function saveRecentSearches() {
+  // Save related form data as an object
+  var recentSearches = {
+    search1: searchInput.value,
+  };
+  // Use .setItem() to store object in storage and JSON.stringify to convert it as a string
+  localStorage.setItem("recentSearches", JSON.stringify(recentSearches));
+}
+
+function renderRecentSearches() {
+  // Use JSON.parse() to convert text to JavaScript object
+  var lastSearch = JSON.parse(localStorage.getItem("recentSearches"));
+  // Check if data is returned, if not exit out of the function
+  if (lastSearch !== null) {
+    historyBtn[0].textContent = lastSearch.search1;
+  } else {
+    return;
+  }
+}
+
+
 
 function getWeatherByCityName() {
   let citySearched = document.getElementById("search-input").value;
@@ -122,6 +137,22 @@ function displayOneCallInfo(DisplayOneCallData) {
   
 }
 
-// <!--TODO: UV INDEX COLORS BASED ON NUMBER -->
 
+function getWeather(event) {
+  event.preventDefault();
+  getWeatherByCityName();
+  displayDates();
+  // saveRecentSearches();
+  console.log("Search button has been clicked!");
+}
+
+// <!--TODO: UV INDEX COLORS BASED ON NUMBER -->
+renderRecentSearches();
+
+// document.addEventListener('DOMContentLoaded', getRecentSearches); 
 searchBtn.click(getWeather); 
+searchBtn.click(function (event) {
+  event.preventDefault();
+  saveRecentSearches();
+  renderRecentSearches();
+  });
