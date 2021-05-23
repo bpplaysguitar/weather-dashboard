@@ -126,7 +126,7 @@ function getWeatherByCityName() {
     });
 
     if (citySearched === "") {
-      alert("No city found. Enter a city name.");
+      alert("Enter a city name.");
       return;
     } 
 }
