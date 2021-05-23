@@ -3,7 +3,7 @@
 A scheduling web application for keeping track of events throughout the day
 
 See the project live here:
-https://bpplaysguitar.github.io/workday-scheduler/
+https://bpplaysguitar.github.io/weather-dashboard/
 
 ![GitHub code size](https://img.shields.io/github/languages/code-size/bpplaysguitar/weather-dashboard?color=FF0000&logo=GitHub&logoColor=FF0000&style=for-the-badge)
 
