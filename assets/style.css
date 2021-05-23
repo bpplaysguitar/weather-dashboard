@@ -106,7 +106,7 @@ header h1 {
   color: #333;
   font-size: 1.2rem;
   border: none;
-  text-transform: capitalize;
+  text-transform:capitalize;
   box-shadow: var(--box-shadow);
 }
 

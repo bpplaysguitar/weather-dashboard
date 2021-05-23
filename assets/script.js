@@ -65,6 +65,8 @@ function saveRecentSearches() {
   for (let hb = 0; hb < 8; hb++)
     historyBtn[hb].addEventListener("click", function () {
       searchInput.value = historyBtn[hb].textContent;
+      let historyVar = historyBtn[hb].textContent;
+      getWeatherByHistory(historyVar);
       return;
     });
 
@@ -90,6 +92,20 @@ function renderRecentSearches() {
   } else {
     return;
   }
+}
+function getWeatherByHistory(history) {
+
+  fetch(
+    `https://api.openweathermap.org/data/2.5/weather?q=${history}&units=imperial&appid=${apiKey}`
+  )
+    .then((response) => response.json())
+    .then((dataWeather) => {
+      // saveToLocalStorage(data)
+      console.log("dataWeather", dataWeather);
+      displayWeatherInfo(dataWeather);
+      getLonLatFromCity(dataWeather);
+      getWeatherByLonLat();
+    });
 }
 
 function getWeatherByCityName() {
