@@ -70,9 +70,11 @@ function saveRecentSearches() {
       return;
     });
 
-  recentSearches.unshift(searchInput.value);
-  if (recentSearches.length > 8) {
-    recentSearches.pop();
+  if (searchInput.value !== "") {
+    recentSearches.unshift(searchInput.value);
+    if (recentSearches.length > 8) {
+      recentSearches.pop();
+    }
   }
 
   localStorage.setItem("recentSearches", JSON.stringify(recentSearches));
@@ -122,6 +124,11 @@ function getWeatherByCityName() {
       getLonLatFromCity(dataWeather);
       getWeatherByLonLat();
     });
+
+    if (citySearched === "") {
+      alert("No city found. Enter a city name.");
+      return;
+    } 
 }
 
 function getWeatherByLonLat() {
