@@ -77,7 +77,7 @@ function saveRecentSearches() {
 
   localStorage.setItem("recentSearches", JSON.stringify(recentSearches));
 }
-    
+
 function renderRecentSearches() {
   let lastSearch = JSON.parse(localStorage.getItem("recentSearches"));
   if (lastSearch !== null) {
@@ -193,7 +193,6 @@ function getWeather() {
 }
 
 localStorage.getItem("recentSearches");
-document.addEventListener("DOMContentLoaded", renderRecentSearches);
 
 // click search button to start 
 searchBtn.click(getWeather);
