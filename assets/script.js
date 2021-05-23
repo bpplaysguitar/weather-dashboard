@@ -50,9 +50,6 @@ dateDisplay =
   today.year;
 
 function displayDates() {
-  // for (let n = 0; n < 5 ; n++) {
-  //   weatherboxDate[n].textContent = today.plus({days: n+1}).weekdayLong + ", " + today.plus({days: n+1}).monthLong + " " + today.plus({days: n+1}).day + ", " + today.plus({days: n+1}).year;;
-  // } return;
   for (let n = 0; n < 5; n++) {
     weatherboxDate[n].textContent = today.plus({ days: n + 1 }).toFormat("D");
   }
@@ -60,40 +57,27 @@ function displayDates() {
 }
 
 function saveRecentSearches() {
-  // Save related form data as an object
   let recentSearches = JSON.parse(localStorage.getItem("recentSearches"));
   if (recentSearches === null) {
     recentSearches = [];
   }
-  
+
   for (let hb = 0; hb < 8; hb++)
-  historyBtn[hb].addEventListener("click", function () {
-    console.log(historyBtn[hb].textContent);
-    searchInput.value = historyBtn[hb].textContent;
-    return;
-  })
+    historyBtn[hb].addEventListener("click", function () {
+      searchInput.value = historyBtn[hb].textContent;
+      return;
+    });
 
-
-  
-  
-  console.log(searchInput.value);
   recentSearches.unshift(searchInput.value);
   if (recentSearches.length > 8) {
-    recentSearches.pop()}
-
-    
-    localStorage.setItem("recentSearches", JSON.stringify(recentSearches));
-    
-    // search for content of history button 
+    recentSearches.pop();
   }
-    
-    
-  
 
+  localStorage.setItem("recentSearches", JSON.stringify(recentSearches));
+}
+    
 function renderRecentSearches() {
-  // Use JSON.parse() to convert text to JavaScript object
   let lastSearch = JSON.parse(localStorage.getItem("recentSearches"));
-  // Check if data is returned, if not exit out of the function
   if (lastSearch !== null) {
     historyBtn[0].textContent = lastSearch[0];
     historyBtn[1].textContent = lastSearch[1];
@@ -106,7 +90,6 @@ function renderRecentSearches() {
   } else {
     return;
   }
-
 }
 
 function getWeatherByCityName() {
@@ -123,7 +106,6 @@ function getWeatherByCityName() {
       getLonLatFromCity(dataWeather);
       getWeatherByLonLat();
     });
-  // .catch(errWeather => console.log("wrong city name!", errWeather))
 }
 
 function getWeatherByLonLat() {
@@ -132,11 +114,9 @@ function getWeatherByLonLat() {
   )
     .then((responseLL) => responseLL.json())
     .then((dataOneCall) => {
-      // saveToLocalStorage(data)
       console.log("dataOneCall", dataOneCall);
       displayOneCallInfo(dataOneCall);
     });
-  // .catch(errOneCall => console.log("Incorrect Lat/Lon", errOneCall))
 }
 
 // use weather api to display info
@@ -155,7 +135,6 @@ function getLonLatFromCity(displayData) {
 // use onecall api to display info
 function displayOneCallInfo(DisplayOneCallData) {
   uvSpan.textContent = DisplayOneCallData.current.uvi;
-  // iconSpan.textContent = DisplayOneCallData.current.weather[0].icon;
   iconSpan.innerHTML = "<img src=\'http://openweathermap.org/img/w/" + DisplayOneCallData.current.weather[0].icon + ".png'>";
   // change color based on UV Index 
   if (uvSpan.textContent < 3) {
@@ -166,8 +145,7 @@ function displayOneCallInfo(DisplayOneCallData) {
     uvSpan.setAttribute("style", "background-color: orangered; color: white")
   }
 
-
-
+  // fill 5-day weather boxes with data from the fetch
   for (let h = 0; h < 5; h++) {
     weatherboxIcon[h].innerHTML = "<img src=\'http://openweathermap.org/img/w/" + DisplayOneCallData.daily[h].weather[0].icon + ".png'>";
   }
@@ -194,17 +172,14 @@ function displayOneCallInfo(DisplayOneCallData) {
 }
 
 function getWeather() {
-
   getWeatherByCityName();
   displayDates();
-  // saveRecentSearches();
-  console.log("Search button has been clicked!");
 }
-
 
 localStorage.getItem("recentSearches");
 document.addEventListener("DOMContentLoaded", renderRecentSearches);
 
+// click search button to start 
 searchBtn.click(getWeather);
 searchBtn.click(function (event) {
   event.preventDefault();
