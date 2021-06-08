@@ -22,6 +22,13 @@ https://bpplaysguitar.github.io/weather-dashboard/
 ## Description
 This web app assignemnt was a fun way to get acquainted with fetching data objects from APIs and using that data in useful and interesting ways. It provided me with some practice using if statements, for loops, and arrays as well. I liked building it, and I can definitely use the skills I've taken from this, in a group project which is currently in progress.
 
+## Technologies Used
+HTML
+CSS
+JavaScript
+Local Storage
+Luxon
+
 
 ## Installation
 
@@ -42,7 +49,7 @@ git clone https://github.com/bpplaysguitar/weather-dashboard.git,
 
 Screenshot image of the project web page
 
-![](assets/images/screenshot.jpg)
+![](assets/images/weather-gif.gif)
 
 ## Credits
 
