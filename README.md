@@ -1,6 +1,9 @@
 # weather-dashboard
-
 A scheduling web application for keeping track of events throughout the day
+
+Brian Palay <br>
+612-202-5710 <br>
+brianpalay@gmail.com
 
 See the project live here:
 https://bpplaysguitar.github.io/weather-dashboard/
